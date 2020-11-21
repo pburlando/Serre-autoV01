@@ -1,0 +1,565 @@
+\section{Référence de la classe Serre\+Auto}
+\label{class_serre_auto}\index{Serre\+Auto@{Serre\+Auto}}
+
+
+{\ttfamily \#include $<$Serre\+Auto.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Serre\+Auto} ()
+\begin{DoxyCompactList}\small\item\em Construct a new pin Mode object. \end{DoxyCompactList}\item 
+virtual \textbf{ $\sim$\+Serre\+Auto} ()
+\item 
+void \textbf{ init} ()
+\begin{DoxyCompactList}\small\item\em Initialisation de capteurs, de l\textquotesingle{}afficheur L\+CD , de l\textquotesingle{}horloge, de la communication série et du régulateur P\+ID. \end{DoxyCompactList}\item 
+void \textbf{ commander\+\_\+extracteur\+\_\+air} (int vitesse)
+\begin{DoxyCompactList}\small\item\em Commander le ventilateur d\textquotesingle{}extraction d\textquotesingle{}air. \end{DoxyCompactList}\item 
+void \textbf{ commander\+\_\+eclairage} (bool etat)
+\begin{DoxyCompactList}\small\item\em Commander l\textquotesingle{}éclairage de la serre. \end{DoxyCompactList}\item 
+void \textbf{ ouvrir\+\_\+volet} ()
+\begin{DoxyCompactList}\small\item\em Ouvrir le volet jusqu\textquotesingle{}au fin de course. \end{DoxyCompactList}\item 
+void \textbf{ fermer\+\_\+volet} ()
+\begin{DoxyCompactList}\small\item\em Fermer le volet jusqu\textquotesingle{}au fin de course. \end{DoxyCompactList}\item 
+void \textbf{ chauffer} (bool etat)
+\begin{DoxyCompactList}\small\item\em Autoriser le chauffage de la serre. La température du plateau est régulée à 60°C. \end{DoxyCompactList}\item 
+float \textbf{ temperature\+\_\+plateau} ()
+\begin{DoxyCompactList}\small\item\em Acquérir la température du plateau chauffant en degré Celsius. Le capteur est une thermistance de 100k. La température est calculée par interpolation linéaire d\textquotesingle{}une table d\textquotesingle{}étalonnage. \end{DoxyCompactList}\item 
+float \textbf{ humidite\+\_\+ambiante} ()
+\begin{DoxyCompactList}\small\item\em Mesure l\textquotesingle{}humidité ambiante de la serre. Capteur D\+H\+T11. \end{DoxyCompactList}\item 
+float \textbf{ temperature\+\_\+ambiante} ()
+\begin{DoxyCompactList}\small\item\em Mesure la température ambiante mesurée par la sonde dht11. \end{DoxyCompactList}\item 
+void \textbf{ afficher\+\_\+ambiance} () const
+\begin{DoxyCompactList}\small\item\em Ecrit les données mesurées sur le lcd. \end{DoxyCompactList}\item 
+void \textbf{ superviser} () const
+\begin{DoxyCompactList}\small\item\em Envoie les grandeurs mesurées, l\textquotesingle{}état des capteurs et les commandes horodatés sur le port U\+SB. \end{DoxyCompactList}\item 
+void \textbf{ arroser} (bool)
+\begin{DoxyCompactList}\small\item\em Active la pompe d\textquotesingle{}arrosage. \end{DoxyCompactList}\item 
+void \textbf{ afficher\+\_\+version} () const
+\begin{DoxyCompactList}\small\item\em Ecrit la version du firmware, la date et l\textquotesingle{}heure sur le lcd. \end{DoxyCompactList}\item 
+bool \textbf{ autoriser\+\_\+eclairage} (uint8\+\_\+t debut, uint8\+\_\+t duree)
+\begin{DoxyCompactList}\small\item\em donner l\textquotesingle{}autorisation d\textquotesingle{}éclairage selon la programmation horaire. \end{DoxyCompactList}\item 
+bool \textbf{ autoriser\+\_\+arrosage} (uint8\+\_\+t debut, uint16\+\_\+t duree, uint8\+\_\+t periodicite)
+\begin{DoxyCompactList}\small\item\em donner l\textquotesingle{}autorisation d\textquotesingle{}arrosage selon la programmation horaire. L\textquotesingle{}attribut \+\_\+jour\+\_\+arrosage\+\_\+valide est initialisé lors de la mise sous-\/tension ou d\textquotesingle{}un reboot au numéro du jour de la semaine courante. Exemple si reboot mardi \+\_\+jour\+\_\+arrosage\+\_\+valide = 2 \end{DoxyCompactList}\item 
+void \textbf{ jour\+\_\+arrosage\+\_\+valide} (uint8\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Setter pour l\textquotesingle{}attribut \+\_\+jour\+\_\+arrosage\+\_\+valide. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ jour\+\_\+arrosage\+\_\+valide} () const
+\begin{DoxyCompactList}\small\item\em Getter pour l\textquotesingle{}attribut \+\_\+jour\+\_\+arrosage\+\_\+valide. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ mli\+\_\+plateau\+\_\+chauffant} () const
+\begin{DoxyCompactList}\small\item\em Getter de la commande M\+LI du plateau chauffant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+float \textbf{ \+\_\+temperature\+\_\+plateau}
+\item 
+float \textbf{ \+\_\+temperature\+\_\+ambiante}
+\item 
+float \textbf{ \+\_\+humidite\+\_\+ambiante}
+\item 
+uint8\+\_\+t \textbf{ \+\_\+temperature\+\_\+consigne} = 60
+\item 
+float \textbf{ \+\_\+commande\+\_\+mli}
+\item 
+uint8\+\_\+t \textbf{ \+\_\+jour\+\_\+arrosage\+\_\+valide}
+\item 
+uint8\+\_\+t \textbf{ \+\_\+heure\+\_\+debut\+\_\+arrosage}
+\item 
+uint8\+\_\+t \textbf{ \+\_\+duree\+\_\+arrosage}
+\item 
+bool \textbf{ \+\_\+etat\+\_\+eclairage}
+\item 
+bool \textbf{ \+\_\+etat\+\_\+arrosage}
+\item 
+bool \textbf{ \+\_\+etat\+\_\+volet}
+\item 
+uint8\+\_\+t \textbf{ \+\_\+mli\+\_\+extracteur}
+\item 
+Date\+Time \textbf{ \+\_\+now}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 20 du fichier Serre\+Auto.\+h.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\label{class_serre_auto_ab4f42b527c7f29b49c409439fe75e432}} 
+\index{Serre\+Auto@{Serre\+Auto}!Serre\+Auto@{Serre\+Auto}}
+\index{Serre\+Auto@{Serre\+Auto}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{Serre\+Auto()}
+{\footnotesize\ttfamily Serre\+Auto\+::\+Serre\+Auto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new pin Mode object. 
+
+Date du jour 
+
+Définition à la ligne 58 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_a5639b2ad1f2e20db5a181fe432f2453d}} 
+\index{Serre\+Auto@{Serre\+Auto}!````~Serre\+Auto@{$\sim$\+Serre\+Auto}}
+\index{````~Serre\+Auto@{$\sim$\+Serre\+Auto}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{$\sim$\+Serre\+Auto()}
+{\footnotesize\ttfamily Serre\+Auto\+::$\sim$\+Serre\+Auto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Définition à la ligne 432 du fichier Serre\+Auto.\+cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\label{class_serre_auto_a35c80d7b955ea2e529219931934a640d}} 
+\index{Serre\+Auto@{Serre\+Auto}!afficher\+\_\+ambiance@{afficher\+\_\+ambiance}}
+\index{afficher\+\_\+ambiance@{afficher\+\_\+ambiance}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{afficher\+\_\+ambiance()}
+{\footnotesize\ttfamily void Serre\+Auto\+::afficher\+\_\+ambiance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Ecrit les données mesurées sur le lcd. 
+
+
+
+Définition à la ligne 242 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_a792f6d2a7340dd3e778d12ad3c6ae2e5}} 
+\index{Serre\+Auto@{Serre\+Auto}!afficher\+\_\+version@{afficher\+\_\+version}}
+\index{afficher\+\_\+version@{afficher\+\_\+version}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{afficher\+\_\+version()}
+{\footnotesize\ttfamily void Serre\+Auto\+::afficher\+\_\+version (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Ecrit la version du firmware, la date et l\textquotesingle{}heure sur le lcd. 
+
+
+
+Définition à la ligne 266 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_a467d5419c23fcd68f4a1400c30083f0b}} 
+\index{Serre\+Auto@{Serre\+Auto}!arroser@{arroser}}
+\index{arroser@{arroser}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{arroser()}
+{\footnotesize\ttfamily void Serre\+Auto\+::arroser (\begin{DoxyParamCaption}\item[{bool}]{autorisation }\end{DoxyParamCaption})}
+
+
+
+Active la pompe d\textquotesingle{}arrosage. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em autorisation} & état binaire de la pompe d\textquotesingle{}arrosage. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 314 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_a9b7cef785d589b7fb34ffce43a144f2b}} 
+\index{Serre\+Auto@{Serre\+Auto}!autoriser\+\_\+arrosage@{autoriser\+\_\+arrosage}}
+\index{autoriser\+\_\+arrosage@{autoriser\+\_\+arrosage}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{autoriser\+\_\+arrosage()}
+{\footnotesize\ttfamily bool Serre\+Auto\+::autoriser\+\_\+arrosage (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{debut,  }\item[{uint16\+\_\+t}]{duree,  }\item[{uint8\+\_\+t}]{periodicite }\end{DoxyParamCaption})}
+
+
+
+donner l\textquotesingle{}autorisation d\textquotesingle{}arrosage selon la programmation horaire. L\textquotesingle{}attribut \+\_\+jour\+\_\+arrosage\+\_\+valide est initialisé lors de la mise sous-\/tension ou d\textquotesingle{}un reboot au numéro du jour de la semaine courante. Exemple si reboot mardi \+\_\+jour\+\_\+arrosage\+\_\+valide = 2 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em debut} & heure de début de 0 à 23h \\
+\hline
+{\em duree} & duree d\textquotesingle{}arrosage en seconde approximativement 13s pour 10cl \\
+\hline
+{\em periodicite} & \{1, 2, 3\} tous les jours, tous les deux jours ... \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+autorisation d\textquotesingle{}arrosage 
+\end{DoxyReturn}
+
+
+Définition à la ligne 367 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_a882c421fd9f03d1a505035e2bb2c8992}} 
+\index{Serre\+Auto@{Serre\+Auto}!autoriser\+\_\+eclairage@{autoriser\+\_\+eclairage}}
+\index{autoriser\+\_\+eclairage@{autoriser\+\_\+eclairage}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{autoriser\+\_\+eclairage()}
+{\footnotesize\ttfamily bool Serre\+Auto\+::autoriser\+\_\+eclairage (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{debut,  }\item[{uint8\+\_\+t}]{duree }\end{DoxyParamCaption})}
+
+
+
+donner l\textquotesingle{}autorisation d\textquotesingle{}éclairage selon la programmation horaire. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em debut} & heure de début entre 0 et 24h. \\
+\hline
+{\em duree} & duree d\textquotesingle{}éclairage en heure entre 1 et 23h. 0 ou $>$ 23 éclairage permanent. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+autorisation d\textquotesingle{}éclairage. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 326 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_ae5b7f28ced721014a12fe0a0945302a2}} 
+\index{Serre\+Auto@{Serre\+Auto}!chauffer@{chauffer}}
+\index{chauffer@{chauffer}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{chauffer()}
+{\footnotesize\ttfamily void Serre\+Auto\+::chauffer (\begin{DoxyParamCaption}\item[{bool}]{etat }\end{DoxyParamCaption})}
+
+
+
+Autoriser le chauffage de la serre. La température du plateau est régulée à 60°C. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em etat} & état binaire du chauffage. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 166 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_aaa65776a78978fd8e197f972a7956082}} 
+\index{Serre\+Auto@{Serre\+Auto}!commander\+\_\+eclairage@{commander\+\_\+eclairage}}
+\index{commander\+\_\+eclairage@{commander\+\_\+eclairage}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{commander\+\_\+eclairage()}
+{\footnotesize\ttfamily void Serre\+Auto\+::commander\+\_\+eclairage (\begin{DoxyParamCaption}\item[{bool}]{etat }\end{DoxyParamCaption})}
+
+
+
+Commander l\textquotesingle{}éclairage de la serre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em etat} & état binaire de l\textquotesingle{}éclairage. 0 = éteint \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 126 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_a446f2846fb43184eb79a1127a3bb67a7}} 
+\index{Serre\+Auto@{Serre\+Auto}!commander\+\_\+extracteur\+\_\+air@{commander\+\_\+extracteur\+\_\+air}}
+\index{commander\+\_\+extracteur\+\_\+air@{commander\+\_\+extracteur\+\_\+air}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{commander\+\_\+extracteur\+\_\+air()}
+{\footnotesize\ttfamily void Serre\+Auto\+::commander\+\_\+extracteur\+\_\+air (\begin{DoxyParamCaption}\item[{int}]{vitesse }\end{DoxyParamCaption})}
+
+
+
+Commander le ventilateur d\textquotesingle{}extraction d\textquotesingle{}air. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vitesse} & à la vitesse 0 $<$ vitesse $<$ 255 \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 116 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_a0c99647189a01760ef61066d488fded8}} 
+\index{Serre\+Auto@{Serre\+Auto}!fermer\+\_\+volet@{fermer\+\_\+volet}}
+\index{fermer\+\_\+volet@{fermer\+\_\+volet}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{fermer\+\_\+volet()}
+{\footnotesize\ttfamily void Serre\+Auto\+::fermer\+\_\+volet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fermer le volet jusqu\textquotesingle{}au fin de course. 
+
+
+
+Définition à la ligne 151 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_accfa319e4d269ff8f62a6bbdddddc0d7}} 
+\index{Serre\+Auto@{Serre\+Auto}!humidite\+\_\+ambiante@{humidite\+\_\+ambiante}}
+\index{humidite\+\_\+ambiante@{humidite\+\_\+ambiante}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{humidite\+\_\+ambiante()}
+{\footnotesize\ttfamily float Serre\+Auto\+::humidite\+\_\+ambiante (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Mesure l\textquotesingle{}humidité ambiante de la serre. Capteur D\+H\+T11. 
+
+\begin{DoxyReturn}{Renvoie}
+Le taux d\textquotesingle{}humidité relative dans l\textquotesingle{}air (\%) 
+\end{DoxyReturn}
+
+
+Définition à la ligne 219 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_a463dd7d09995958c7a6259e990f351b4}} 
+\index{Serre\+Auto@{Serre\+Auto}!init@{init}}
+\index{init@{init}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{init()}
+{\footnotesize\ttfamily void Serre\+Auto\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation de capteurs, de l\textquotesingle{}afficheur L\+CD , de l\textquotesingle{}horloge, de la communication série et du régulateur P\+ID. 
+
+
+
+Définition à la ligne 71 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_a3c6a23e18e41dc3fb071c42d703c63aa}} 
+\index{Serre\+Auto@{Serre\+Auto}!jour\+\_\+arrosage\+\_\+valide@{jour\+\_\+arrosage\+\_\+valide}}
+\index{jour\+\_\+arrosage\+\_\+valide@{jour\+\_\+arrosage\+\_\+valide}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{jour\+\_\+arrosage\+\_\+valide()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Serre\+Auto\+::jour\+\_\+arrosage\+\_\+valide (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{jour\+\_\+valide }\end{DoxyParamCaption})}
+
+
+
+Setter pour l\textquotesingle{}attribut \+\_\+jour\+\_\+arrosage\+\_\+valide. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em jour\+\_\+valide} & un jour de la semaine compris entre 0 et 6. Dimanche est le jour 0 \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 408 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_acc3186ced23d82472a40acd172d9af36}} 
+\index{Serre\+Auto@{Serre\+Auto}!jour\+\_\+arrosage\+\_\+valide@{jour\+\_\+arrosage\+\_\+valide}}
+\index{jour\+\_\+arrosage\+\_\+valide@{jour\+\_\+arrosage\+\_\+valide}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{jour\+\_\+arrosage\+\_\+valide()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t Serre\+Auto\+::jour\+\_\+arrosage\+\_\+valide (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter pour l\textquotesingle{}attribut \+\_\+jour\+\_\+arrosage\+\_\+valide. 
+
+\begin{DoxyReturn}{Renvoie}
+attribut correspondant au jour d\textquotesingle{}arrosage valide dans la semaine. Compris entre 0 et 6. Dimanche est le jour 0 
+\end{DoxyReturn}
+
+
+Définition à la ligne 417 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_ae8880f934e9aeb1cecf9541dce0eeb8f}} 
+\index{Serre\+Auto@{Serre\+Auto}!mli\+\_\+plateau\+\_\+chauffant@{mli\+\_\+plateau\+\_\+chauffant}}
+\index{mli\+\_\+plateau\+\_\+chauffant@{mli\+\_\+plateau\+\_\+chauffant}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{mli\+\_\+plateau\+\_\+chauffant()}
+{\footnotesize\ttfamily uint8\+\_\+t Serre\+Auto\+::mli\+\_\+plateau\+\_\+chauffant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter de la commande M\+LI du plateau chauffant. 
+
+
+
+Définition à la ligne 427 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_a294d1c117b4db9b15c8760bd2c9ddca1}} 
+\index{Serre\+Auto@{Serre\+Auto}!ouvrir\+\_\+volet@{ouvrir\+\_\+volet}}
+\index{ouvrir\+\_\+volet@{ouvrir\+\_\+volet}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{ouvrir\+\_\+volet()}
+{\footnotesize\ttfamily void Serre\+Auto\+::ouvrir\+\_\+volet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Ouvrir le volet jusqu\textquotesingle{}au fin de course. 
+
+
+
+Définition à la ligne 137 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_a5e440bbc11d445b765e754ee03a97e5f}} 
+\index{Serre\+Auto@{Serre\+Auto}!superviser@{superviser}}
+\index{superviser@{superviser}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{superviser()}
+{\footnotesize\ttfamily void Serre\+Auto\+::superviser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Envoie les grandeurs mesurées, l\textquotesingle{}état des capteurs et les commandes horodatés sur le port U\+SB. 
+
+
+
+Définition à la ligne 282 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_a2899f09ed5ddbec61814730d4887ecfa}} 
+\index{Serre\+Auto@{Serre\+Auto}!temperature\+\_\+ambiante@{temperature\+\_\+ambiante}}
+\index{temperature\+\_\+ambiante@{temperature\+\_\+ambiante}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{temperature\+\_\+ambiante()}
+{\footnotesize\ttfamily float Serre\+Auto\+::temperature\+\_\+ambiante (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Mesure la température ambiante mesurée par la sonde dht11. 
+
+\begin{DoxyReturn}{Renvoie}
+La température ambiante en degré Celsius. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 231 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{class_serre_auto_aa363dbb076e6558e326db9a53b90abe4}} 
+\index{Serre\+Auto@{Serre\+Auto}!temperature\+\_\+plateau@{temperature\+\_\+plateau}}
+\index{temperature\+\_\+plateau@{temperature\+\_\+plateau}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{temperature\+\_\+plateau()}
+{\footnotesize\ttfamily float Serre\+Auto\+::temperature\+\_\+plateau (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Acquérir la température du plateau chauffant en degré Celsius. Le capteur est une thermistance de 100k. La température est calculée par interpolation linéaire d\textquotesingle{}une table d\textquotesingle{}étalonnage. 
+
+\begin{DoxyReturn}{Renvoie}
+la valeur de la température en degré celsius. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 182 du fichier Serre\+Auto.\+cpp.
+
+
+
+\subsection{Documentation des données membres}
+\mbox{\label{class_serre_auto_aeb87d41d1df72cc4576a8a44d3726ed3}} 
+\index{Serre\+Auto@{Serre\+Auto}!\+\_\+commande\+\_\+mli@{\+\_\+commande\+\_\+mli}}
+\index{\+\_\+commande\+\_\+mli@{\+\_\+commande\+\_\+mli}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{\+\_\+commande\+\_\+mli}
+{\footnotesize\ttfamily float Serre\+Auto\+::\+\_\+commande\+\_\+mli\hspace{0.3cm}{\ttfamily [private]}}
+
+Température de consigne du plateau chauffant en degré Celsius 
+
+Définition à la ligne 27 du fichier Serre\+Auto.\+h.
+
+\mbox{\label{class_serre_auto_a29f92bee6afa48e9e4a04b060f850655}} 
+\index{Serre\+Auto@{Serre\+Auto}!\+\_\+duree\+\_\+arrosage@{\+\_\+duree\+\_\+arrosage}}
+\index{\+\_\+duree\+\_\+arrosage@{\+\_\+duree\+\_\+arrosage}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{\+\_\+duree\+\_\+arrosage}
+{\footnotesize\ttfamily uint8\+\_\+t Serre\+Auto\+::\+\_\+duree\+\_\+arrosage\hspace{0.3cm}{\ttfamily [private]}}
+
+Heure de début de l\textquotesingle{}arrosage 0-\/23 
+
+Définition à la ligne 30 du fichier Serre\+Auto.\+h.
+
+\mbox{\label{class_serre_auto_af0292eb1ae2713e715ca3813efc45775}} 
+\index{Serre\+Auto@{Serre\+Auto}!\+\_\+etat\+\_\+arrosage@{\+\_\+etat\+\_\+arrosage}}
+\index{\+\_\+etat\+\_\+arrosage@{\+\_\+etat\+\_\+arrosage}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{\+\_\+etat\+\_\+arrosage}
+{\footnotesize\ttfamily bool Serre\+Auto\+::\+\_\+etat\+\_\+arrosage\hspace{0.3cm}{\ttfamily [private]}}
+
+Etat de l\textquotesingle{}éclairage de la serre 0 = éteint 
+
+Définition à la ligne 32 du fichier Serre\+Auto.\+h.
+
+\mbox{\label{class_serre_auto_a024c1816510888bfb2a8112aa75ce3fd}} 
+\index{Serre\+Auto@{Serre\+Auto}!\+\_\+etat\+\_\+eclairage@{\+\_\+etat\+\_\+eclairage}}
+\index{\+\_\+etat\+\_\+eclairage@{\+\_\+etat\+\_\+eclairage}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{\+\_\+etat\+\_\+eclairage}
+{\footnotesize\ttfamily bool Serre\+Auto\+::\+\_\+etat\+\_\+eclairage\hspace{0.3cm}{\ttfamily [private]}}
+
+Durée d\textquotesingle{}arrosage en seconde. Approximativement 10cl pour 13s 
+
+Définition à la ligne 31 du fichier Serre\+Auto.\+h.
+
+\mbox{\label{class_serre_auto_aac35214361a529386f65eaf33ad6e11c}} 
+\index{Serre\+Auto@{Serre\+Auto}!\+\_\+etat\+\_\+volet@{\+\_\+etat\+\_\+volet}}
+\index{\+\_\+etat\+\_\+volet@{\+\_\+etat\+\_\+volet}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{\+\_\+etat\+\_\+volet}
+{\footnotesize\ttfamily bool Serre\+Auto\+::\+\_\+etat\+\_\+volet\hspace{0.3cm}{\ttfamily [private]}}
+
+Etat de la pompe d\textquotesingle{}arrosage 1 = pompe en marche 
+
+Définition à la ligne 33 du fichier Serre\+Auto.\+h.
+
+\mbox{\label{class_serre_auto_a0301175d17be15fd28e1fd24948df564}} 
+\index{Serre\+Auto@{Serre\+Auto}!\+\_\+heure\+\_\+debut\+\_\+arrosage@{\+\_\+heure\+\_\+debut\+\_\+arrosage}}
+\index{\+\_\+heure\+\_\+debut\+\_\+arrosage@{\+\_\+heure\+\_\+debut\+\_\+arrosage}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{\+\_\+heure\+\_\+debut\+\_\+arrosage}
+{\footnotesize\ttfamily uint8\+\_\+t Serre\+Auto\+::\+\_\+heure\+\_\+debut\+\_\+arrosage\hspace{0.3cm}{\ttfamily [private]}}
+
+Jour de la semaine où l\textquotesingle{}arrosage est valide. jour 0 = dimanche 
+
+Définition à la ligne 29 du fichier Serre\+Auto.\+h.
+
+\mbox{\label{class_serre_auto_a5ff23c9f5eee5367cbebf50d8bac22d5}} 
+\index{Serre\+Auto@{Serre\+Auto}!\+\_\+humidite\+\_\+ambiante@{\+\_\+humidite\+\_\+ambiante}}
+\index{\+\_\+humidite\+\_\+ambiante@{\+\_\+humidite\+\_\+ambiante}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{\+\_\+humidite\+\_\+ambiante}
+{\footnotesize\ttfamily float Serre\+Auto\+::\+\_\+humidite\+\_\+ambiante\hspace{0.3cm}{\ttfamily [private]}}
+
+Température ambiante à l\textquotesingle{}intérieur de la serre en degré Celsius 
+
+Définition à la ligne 25 du fichier Serre\+Auto.\+h.
+
+\mbox{\label{class_serre_auto_ad9d91ee76b884609faa71f68ab5e2444}} 
+\index{Serre\+Auto@{Serre\+Auto}!\+\_\+jour\+\_\+arrosage\+\_\+valide@{\+\_\+jour\+\_\+arrosage\+\_\+valide}}
+\index{\+\_\+jour\+\_\+arrosage\+\_\+valide@{\+\_\+jour\+\_\+arrosage\+\_\+valide}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{\+\_\+jour\+\_\+arrosage\+\_\+valide}
+{\footnotesize\ttfamily uint8\+\_\+t Serre\+Auto\+::\+\_\+jour\+\_\+arrosage\+\_\+valide\hspace{0.3cm}{\ttfamily [private]}}
+
+Valeur de la commande M\+LI du plateau chauffant 0 à 255 
+
+Définition à la ligne 28 du fichier Serre\+Auto.\+h.
+
+\mbox{\label{class_serre_auto_a61a99344d20c390bf5ae0b32ffef17a9}} 
+\index{Serre\+Auto@{Serre\+Auto}!\+\_\+mli\+\_\+extracteur@{\+\_\+mli\+\_\+extracteur}}
+\index{\+\_\+mli\+\_\+extracteur@{\+\_\+mli\+\_\+extracteur}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{\+\_\+mli\+\_\+extracteur}
+{\footnotesize\ttfamily uint8\+\_\+t Serre\+Auto\+::\+\_\+mli\+\_\+extracteur\hspace{0.3cm}{\ttfamily [private]}}
+
+Etat du volet de la serre. 1 = volet ouvert 
+
+Définition à la ligne 34 du fichier Serre\+Auto.\+h.
+
+\mbox{\label{class_serre_auto_a7225c4a49be74a1944d42a693efe4f0e}} 
+\index{Serre\+Auto@{Serre\+Auto}!\+\_\+now@{\+\_\+now}}
+\index{\+\_\+now@{\+\_\+now}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{\+\_\+now}
+{\footnotesize\ttfamily Date\+Time Serre\+Auto\+::\+\_\+now\hspace{0.3cm}{\ttfamily [private]}}
+
+Valeur de la commande M\+LI de l\textquotesingle{}extracteur d\textquotesingle{}air de 0 à 255 
+
+Définition à la ligne 35 du fichier Serre\+Auto.\+h.
+
+\mbox{\label{class_serre_auto_a338d293039946c7744447d8a4194a860}} 
+\index{Serre\+Auto@{Serre\+Auto}!\+\_\+temperature\+\_\+ambiante@{\+\_\+temperature\+\_\+ambiante}}
+\index{\+\_\+temperature\+\_\+ambiante@{\+\_\+temperature\+\_\+ambiante}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{\+\_\+temperature\+\_\+ambiante}
+{\footnotesize\ttfamily float Serre\+Auto\+::\+\_\+temperature\+\_\+ambiante\hspace{0.3cm}{\ttfamily [private]}}
+
+Température du plateau chauffant en degré Celsius 
+
+Définition à la ligne 24 du fichier Serre\+Auto.\+h.
+
+\mbox{\label{class_serre_auto_a02038ab4fae49a1f2b6c09c545e83328}} 
+\index{Serre\+Auto@{Serre\+Auto}!\+\_\+temperature\+\_\+consigne@{\+\_\+temperature\+\_\+consigne}}
+\index{\+\_\+temperature\+\_\+consigne@{\+\_\+temperature\+\_\+consigne}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{\+\_\+temperature\+\_\+consigne}
+{\footnotesize\ttfamily uint8\+\_\+t Serre\+Auto\+::\+\_\+temperature\+\_\+consigne = 60\hspace{0.3cm}{\ttfamily [private]}}
+
+Humidité ambiante relative à l\textquotesingle{}intérieur de la serre en \% 
+
+Définition à la ligne 26 du fichier Serre\+Auto.\+h.
+
+\mbox{\label{class_serre_auto_a4a5a4427ccb7dc37323b29a541f84759}} 
+\index{Serre\+Auto@{Serre\+Auto}!\+\_\+temperature\+\_\+plateau@{\+\_\+temperature\+\_\+plateau}}
+\index{\+\_\+temperature\+\_\+plateau@{\+\_\+temperature\+\_\+plateau}!Serre\+Auto@{Serre\+Auto}}
+\subsubsection{\+\_\+temperature\+\_\+plateau}
+{\footnotesize\ttfamily float Serre\+Auto\+::\+\_\+temperature\+\_\+plateau\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition à la ligne 23 du fichier Serre\+Auto.\+h.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+One\+Drive/\+Documents/\+Boulot/\+L\+A\+B\+O\+\_\+\+S\+I/projets didactiques/\+Serre\+\_\+automatisee/tests\+\_\+serre/src/\textbf{ Serre\+Auto.\+h}\item 
+D\+:/\+One\+Drive/\+Documents/\+Boulot/\+L\+A\+B\+O\+\_\+\+S\+I/projets didactiques/\+Serre\+\_\+automatisee/tests\+\_\+serre/src/\textbf{ Serre\+Auto.\+cpp}\end{DoxyCompactItemize}

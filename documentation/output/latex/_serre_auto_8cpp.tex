@@ -1,0 +1,300 @@
+\section{Référence du fichier D\+:/\+One\+Drive/\+Documents/\+Boulot/\+L\+A\+B\+O\+\_\+\+S\+I/projets didactiques/\+Serre\+\_\+automatisee/tests\+\_\+serre/src/\+Serre\+Auto.cpp}
+\label{_serre_auto_8cpp}\index{D\+:/\+One\+Drive/\+Documents/\+Boulot/\+L\+A\+B\+O\+\_\+\+S\+I/projets didactiques/\+Serre\+\_\+automatisee/tests\+\_\+serre/src/\+Serre\+Auto.\+cpp@{D\+:/\+One\+Drive/\+Documents/\+Boulot/\+L\+A\+B\+O\+\_\+\+S\+I/projets didactiques/\+Serre\+\_\+automatisee/tests\+\_\+serre/src/\+Serre\+Auto.\+cpp}}
+
+
+Contrôle de la serre automatisée.  
+
+
+{\ttfamily \#include \char`\"{}Serre\+Auto.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}D\+R\+V\+L298\+N\+Motor\+Shield.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Arduino.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}thermistortable.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$P\+I\+D\+\_\+v1.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}D\+H\+T.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Wire.\+h$>$}\newline
+{\ttfamily \#include $<$Liquid\+Crystal\+\_\+\+I2\+C.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}R\+T\+Clib.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ C\+D\+E\+V\+O\+L\+E\+T\+D\+IR}~16
+\item 
+\#define \textbf{ C\+D\+E\+V\+O\+L\+E\+T\+P\+WM}~17
+\item 
+\#define \textbf{ E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+D\+IR}~23
+\item 
+\#define \textbf{ E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+P\+WM}~25
+\item 
+\#define \textbf{ F\+D\+C\+V\+O\+L\+E\+T\+O\+U\+V\+E\+RT}~2
+\item 
+\#define \textbf{ F\+D\+C\+V\+O\+L\+E\+T\+F\+E\+R\+ME}~3
+\item 
+\#define \textbf{ D\+H\+T\+P\+IN}~40
+\item 
+\#define \textbf{ D\+H\+T\+T\+Y\+PE}~D\+H\+T11
+\item 
+\#define \textbf{ T\+H\+E\+R\+M0}~A13
+\item 
+\#define \textbf{ H\+E\+A\+T\+\_\+\+B\+ED}~8
+\item 
+\#define \textbf{ E\+C\+L\+A\+I\+R\+A\+GE}~9
+\item 
+\#define \textbf{ P\+O\+M\+PE}~10
+\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+Liquid\+Crystal\+\_\+\+I2C \textbf{ lcd} (0x27, 16, 2)
+\item 
+D\+HT \textbf{ dht} (\textbf{ D\+H\+T\+P\+IN}, \textbf{ D\+H\+T\+T\+Y\+PE})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ Input}
+\item 
+double \textbf{ Setpoint}
+\item 
+double \textbf{ Output}
+\item 
+double \textbf{ Kp} = 62.\+5
+\item 
+double \textbf{ Ki} = 0.\+2083
+\item 
+double \textbf{ Kd} = 31.\+25
+\item 
+\textbf{ D\+R\+V\+L298\+N\+Motor\+Shield} \textbf{ drv} (\textbf{ C\+D\+E\+V\+O\+L\+E\+T\+D\+IR}, \textbf{ C\+D\+E\+V\+O\+L\+E\+T\+P\+WM}, \textbf{ E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+D\+IR}, \textbf{ E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+P\+WM}, true, false)
+\item 
+R\+T\+C\+\_\+\+D\+S1307 \textbf{ rtc}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Contrôle de la serre automatisée. 
+
+\begin{DoxyDate}{Date}
+23 juillet 2020 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Auteur}
+patrice 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+
+
+\subsection{Documentation des macros}
+\mbox{\label{_serre_auto_8cpp_a6fe5e728d855cb8aaf42f08ee62e1ee5}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!C\+D\+E\+V\+O\+L\+E\+T\+D\+IR@{C\+D\+E\+V\+O\+L\+E\+T\+D\+IR}}
+\index{C\+D\+E\+V\+O\+L\+E\+T\+D\+IR@{C\+D\+E\+V\+O\+L\+E\+T\+D\+IR}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{C\+D\+E\+V\+O\+L\+E\+T\+D\+IR}
+{\footnotesize\ttfamily \#define C\+D\+E\+V\+O\+L\+E\+T\+D\+IR~16}
+
+
+
+Définition à la ligne 22 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_a6ae2b2bf04e8184cf9196650968586c5}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!C\+D\+E\+V\+O\+L\+E\+T\+P\+WM@{C\+D\+E\+V\+O\+L\+E\+T\+P\+WM}}
+\index{C\+D\+E\+V\+O\+L\+E\+T\+P\+WM@{C\+D\+E\+V\+O\+L\+E\+T\+P\+WM}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{C\+D\+E\+V\+O\+L\+E\+T\+P\+WM}
+{\footnotesize\ttfamily \#define C\+D\+E\+V\+O\+L\+E\+T\+P\+WM~17}
+
+
+
+Définition à la ligne 23 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_a757bb4e2bff6148de6ef3989b32a0126}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!D\+H\+T\+P\+IN@{D\+H\+T\+P\+IN}}
+\index{D\+H\+T\+P\+IN@{D\+H\+T\+P\+IN}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{D\+H\+T\+P\+IN}
+{\footnotesize\ttfamily \#define D\+H\+T\+P\+IN~40}
+
+
+
+Définition à la ligne 28 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_a2c509dba12bba99883a5be9341b7a0c5}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!D\+H\+T\+T\+Y\+PE@{D\+H\+T\+T\+Y\+PE}}
+\index{D\+H\+T\+T\+Y\+PE@{D\+H\+T\+T\+Y\+PE}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{D\+H\+T\+T\+Y\+PE}
+{\footnotesize\ttfamily \#define D\+H\+T\+T\+Y\+PE~D\+H\+T11}
+
+
+
+Définition à la ligne 29 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_a6b78d38125a21d9328effc2729a6ebd8}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!E\+C\+L\+A\+I\+R\+A\+GE@{E\+C\+L\+A\+I\+R\+A\+GE}}
+\index{E\+C\+L\+A\+I\+R\+A\+GE@{E\+C\+L\+A\+I\+R\+A\+GE}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{E\+C\+L\+A\+I\+R\+A\+GE}
+{\footnotesize\ttfamily \#define E\+C\+L\+A\+I\+R\+A\+GE~9}
+
+
+
+Définition à la ligne 32 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_a11809bf48a9eed16377fb8ecde8aa014}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+D\+IR@{E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+D\+IR}}
+\index{E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+D\+IR@{E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+D\+IR}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+D\+IR}
+{\footnotesize\ttfamily \#define E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+D\+IR~23}
+
+
+
+Définition à la ligne 24 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_a725cf70ccacfa969efef92e7bd4ef56f}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+P\+WM@{E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+P\+WM}}
+\index{E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+P\+WM@{E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+P\+WM}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+P\+WM}
+{\footnotesize\ttfamily \#define E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+P\+WM~25}
+
+
+
+Définition à la ligne 25 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_a8887910a588e6add8c5c7ad94b1e32aa}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!F\+D\+C\+V\+O\+L\+E\+T\+F\+E\+R\+ME@{F\+D\+C\+V\+O\+L\+E\+T\+F\+E\+R\+ME}}
+\index{F\+D\+C\+V\+O\+L\+E\+T\+F\+E\+R\+ME@{F\+D\+C\+V\+O\+L\+E\+T\+F\+E\+R\+ME}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{F\+D\+C\+V\+O\+L\+E\+T\+F\+E\+R\+ME}
+{\footnotesize\ttfamily \#define F\+D\+C\+V\+O\+L\+E\+T\+F\+E\+R\+ME~3}
+
+
+
+Définition à la ligne 27 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_af49bb0440e4d6cf80c49df198607f1a4}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!F\+D\+C\+V\+O\+L\+E\+T\+O\+U\+V\+E\+RT@{F\+D\+C\+V\+O\+L\+E\+T\+O\+U\+V\+E\+RT}}
+\index{F\+D\+C\+V\+O\+L\+E\+T\+O\+U\+V\+E\+RT@{F\+D\+C\+V\+O\+L\+E\+T\+O\+U\+V\+E\+RT}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{F\+D\+C\+V\+O\+L\+E\+T\+O\+U\+V\+E\+RT}
+{\footnotesize\ttfamily \#define F\+D\+C\+V\+O\+L\+E\+T\+O\+U\+V\+E\+RT~2}
+
+
+
+Définition à la ligne 26 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_aebb9b5e61168ce1d0cd78f77ede7d37d}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!H\+E\+A\+T\+\_\+\+B\+ED@{H\+E\+A\+T\+\_\+\+B\+ED}}
+\index{H\+E\+A\+T\+\_\+\+B\+ED@{H\+E\+A\+T\+\_\+\+B\+ED}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{H\+E\+A\+T\+\_\+\+B\+ED}
+{\footnotesize\ttfamily \#define H\+E\+A\+T\+\_\+\+B\+ED~8}
+
+
+
+Définition à la ligne 31 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_a7c03de696708859768343b815cabeecb}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!P\+O\+M\+PE@{P\+O\+M\+PE}}
+\index{P\+O\+M\+PE@{P\+O\+M\+PE}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{P\+O\+M\+PE}
+{\footnotesize\ttfamily \#define P\+O\+M\+PE~10}
+
+
+
+Définition à la ligne 33 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_a34fc85e95c57ecbe9606a01a8fa4e7e0}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!T\+H\+E\+R\+M0@{T\+H\+E\+R\+M0}}
+\index{T\+H\+E\+R\+M0@{T\+H\+E\+R\+M0}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{T\+H\+E\+R\+M0}
+{\footnotesize\ttfamily \#define T\+H\+E\+R\+M0~A13}
+
+
+
+Définition à la ligne 30 du fichier Serre\+Auto.\+cpp.
+
+
+
+\subsection{Documentation des fonctions}
+\mbox{\label{_serre_auto_8cpp_ad7a1df263f6f823242a112ec11297434}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!dht@{dht}}
+\index{dht@{dht}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{dht()}
+{\footnotesize\ttfamily D\+HT dht (\begin{DoxyParamCaption}\item[{\textbf{ D\+H\+T\+P\+IN}}]{,  }\item[{\textbf{ D\+H\+T\+T\+Y\+PE}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{_serre_auto_8cpp_ae084e1bc8ccb35ea289ba0ca4972ea6d}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!lcd@{lcd}}
+\index{lcd@{lcd}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{lcd()}
+{\footnotesize\ttfamily Liquid\+Crystal\+\_\+\+I2C lcd (\begin{DoxyParamCaption}\item[{0x27}]{,  }\item[{16}]{,  }\item[{2}]{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Documentation des variables}
+\mbox{\label{_serre_auto_8cpp_a1ff10cd00601bd7f6028d08ff6e33a81}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!drv@{drv}}
+\index{drv@{drv}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{drv}
+{\footnotesize\ttfamily \textbf{ D\+R\+V\+L298\+N\+Motor\+Shield} drv(\textbf{ C\+D\+E\+V\+O\+L\+E\+T\+D\+IR}, \textbf{ C\+D\+E\+V\+O\+L\+E\+T\+P\+WM}, \textbf{ E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+D\+IR}, \textbf{ E\+X\+T\+R\+A\+C\+T\+E\+U\+R\+P\+WM}, true, false)}
+
+\mbox{\label{_serre_auto_8cpp_a1650ded891a8683614e014008c96278c}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!Input@{Input}}
+\index{Input@{Input}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{Input}
+{\footnotesize\ttfamily P\+ID my\+P\+ID \& Input}
+
+
+
+Définition à la ligne 37 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_ab9e6bbb0361dc98bc2f5399d014c6c01}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!Kd@{Kd}}
+\index{Kd@{Kd}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{Kd}
+{\footnotesize\ttfamily double Kd = 31.\+25}
+
+
+
+Définition à la ligne 40 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_aad5977a9e83736178f3b724a1d228652}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!Ki@{Ki}}
+\index{Ki@{Ki}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{Ki}
+{\footnotesize\ttfamily double Ki = 0.\+2083}
+
+
+
+Définition à la ligne 39 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_afd070d90e3f8bb3e9bb9c6dff310503b}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!Kp@{Kp}}
+\index{Kp@{Kp}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{Kp}
+{\footnotesize\ttfamily double Kp = 62.\+5}
+
+
+
+Définition à la ligne 38 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_abe306616e5964581019974a7d94cffe2}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!Output@{Output}}
+\index{Output@{Output}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{Output}
+{\footnotesize\ttfamily double Output}
+
+
+
+Définition à la ligne 37 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_a7715afc6e8732f6f936183f5c0d76167}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!rtc@{rtc}}
+\index{rtc@{rtc}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{rtc}
+{\footnotesize\ttfamily R\+T\+C\+\_\+\+D\+S1307 rtc}
+
+
+
+Définition à la ligne 51 du fichier Serre\+Auto.\+cpp.
+
+\mbox{\label{_serre_auto_8cpp_a75c4a1f32ff8946a7e4880300dc7d309}} 
+\index{Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}!Setpoint@{Setpoint}}
+\index{Setpoint@{Setpoint}!Serre\+Auto.\+cpp@{Serre\+Auto.\+cpp}}
+\subsubsection{Setpoint}
+{\footnotesize\ttfamily double Setpoint}
+
+
+
+Définition à la ligne 37 du fichier Serre\+Auto.\+cpp.
+

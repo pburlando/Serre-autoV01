@@ -1,0 +1,7 @@
+/*! \mainpage page principale
+ *
+ * \section intro_sec Introduction
+ *
+ * Programme de gestion d'une serre automatisée permettant la culture d'un végétal à température constante, ventilation forcée et arrosage automatique.
+ *
+ */

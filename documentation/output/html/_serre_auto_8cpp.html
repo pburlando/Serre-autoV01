@@ -1,0 +1,567 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Serre automatisée: Référence du fichier D:/OneDrive/Documents/Boulot/LABO_SI/projets didactiques/Serre_automatisee/tests_serre/src/SerreAuto.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Serre automatisée
+   &#160;<span id="projectnumber">V0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_serre_auto_8cpp.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier SerreAuto.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contrôle de la serre automatisée.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="_serre_auto_8h_source.html">SerreAuto.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_d_r_v_l298_n_motor_shield_8h_source.html">DRVL298NMotorShield.h</a>&quot;</code><br />
+<code>#include &quot;Arduino.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="thermistortable_8h_source.html">thermistortable.h</a>&quot;</code><br />
+<code>#include &lt;PID_v1.h&gt;</code><br />
+<code>#include &quot;DHT.h&quot;</code><br />
+<code>#include &lt;Wire.h&gt;</code><br />
+<code>#include &lt;LiquidCrystal_I2C.h&gt;</code><br />
+<code>#include &quot;RTClib.h&quot;</code><br />
+</div>
+<p><a href="_serre_auto_8cpp_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a6fe5e728d855cb8aaf42f08ee62e1ee5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#a6fe5e728d855cb8aaf42f08ee62e1ee5">CDEVOLETDIR</a>&#160;&#160;&#160;16</td></tr>
+<tr class="separator:a6fe5e728d855cb8aaf42f08ee62e1ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ae2b2bf04e8184cf9196650968586c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#a6ae2b2bf04e8184cf9196650968586c5">CDEVOLETPWM</a>&#160;&#160;&#160;17</td></tr>
+<tr class="separator:a6ae2b2bf04e8184cf9196650968586c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11809bf48a9eed16377fb8ecde8aa014"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#a11809bf48a9eed16377fb8ecde8aa014">EXTRACTEURDIR</a>&#160;&#160;&#160;23</td></tr>
+<tr class="separator:a11809bf48a9eed16377fb8ecde8aa014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a725cf70ccacfa969efef92e7bd4ef56f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#a725cf70ccacfa969efef92e7bd4ef56f">EXTRACTEURPWM</a>&#160;&#160;&#160;25</td></tr>
+<tr class="separator:a725cf70ccacfa969efef92e7bd4ef56f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af49bb0440e4d6cf80c49df198607f1a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#af49bb0440e4d6cf80c49df198607f1a4">FDCVOLETOUVERT</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:af49bb0440e4d6cf80c49df198607f1a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8887910a588e6add8c5c7ad94b1e32aa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#a8887910a588e6add8c5c7ad94b1e32aa">FDCVOLETFERME</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a8887910a588e6add8c5c7ad94b1e32aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a757bb4e2bff6148de6ef3989b32a0126"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#a757bb4e2bff6148de6ef3989b32a0126">DHTPIN</a>&#160;&#160;&#160;40</td></tr>
+<tr class="separator:a757bb4e2bff6148de6ef3989b32a0126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c509dba12bba99883a5be9341b7a0c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#a2c509dba12bba99883a5be9341b7a0c5">DHTTYPE</a>&#160;&#160;&#160;DHT11</td></tr>
+<tr class="separator:a2c509dba12bba99883a5be9341b7a0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34fc85e95c57ecbe9606a01a8fa4e7e0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#a34fc85e95c57ecbe9606a01a8fa4e7e0">THERM0</a>&#160;&#160;&#160;A13</td></tr>
+<tr class="separator:a34fc85e95c57ecbe9606a01a8fa4e7e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebb9b5e61168ce1d0cd78f77ede7d37d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#aebb9b5e61168ce1d0cd78f77ede7d37d">HEAT_BED</a>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:aebb9b5e61168ce1d0cd78f77ede7d37d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b78d38125a21d9328effc2729a6ebd8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#a6b78d38125a21d9328effc2729a6ebd8">ECLAIRAGE</a>&#160;&#160;&#160;9</td></tr>
+<tr class="separator:a6b78d38125a21d9328effc2729a6ebd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c03de696708859768343b815cabeecb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#a7c03de696708859768343b815cabeecb">POMPE</a>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:a7c03de696708859768343b815cabeecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ae084e1bc8ccb35ea289ba0ca4972ea6d"><td class="memItemLeft" align="right" valign="top">LiquidCrystal_I2C&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#ae084e1bc8ccb35ea289ba0ca4972ea6d">lcd</a> (0x27, 16, 2)</td></tr>
+<tr class="separator:ae084e1bc8ccb35ea289ba0ca4972ea6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a1df263f6f823242a112ec11297434"><td class="memItemLeft" align="right" valign="top">DHT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#ad7a1df263f6f823242a112ec11297434">dht</a> (<a class="el" href="_serre_auto_8cpp.html#a757bb4e2bff6148de6ef3989b32a0126">DHTPIN</a>, <a class="el" href="_serre_auto_8cpp.html#a2c509dba12bba99883a5be9341b7a0c5">DHTTYPE</a>)</td></tr>
+<tr class="separator:ad7a1df263f6f823242a112ec11297434"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a1650ded891a8683614e014008c96278c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#a1650ded891a8683614e014008c96278c">Input</a></td></tr>
+<tr class="separator:a1650ded891a8683614e014008c96278c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75c4a1f32ff8946a7e4880300dc7d309"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#a75c4a1f32ff8946a7e4880300dc7d309">Setpoint</a></td></tr>
+<tr class="separator:a75c4a1f32ff8946a7e4880300dc7d309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe306616e5964581019974a7d94cffe2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#abe306616e5964581019974a7d94cffe2">Output</a></td></tr>
+<tr class="separator:abe306616e5964581019974a7d94cffe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd070d90e3f8bb3e9bb9c6dff310503b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#afd070d90e3f8bb3e9bb9c6dff310503b">Kp</a> = 62.5</td></tr>
+<tr class="separator:afd070d90e3f8bb3e9bb9c6dff310503b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad5977a9e83736178f3b724a1d228652"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#aad5977a9e83736178f3b724a1d228652">Ki</a> = 0.2083</td></tr>
+<tr class="separator:aad5977a9e83736178f3b724a1d228652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9e6bbb0361dc98bc2f5399d014c6c01"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#ab9e6bbb0361dc98bc2f5399d014c6c01">Kd</a> = 31.25</td></tr>
+<tr class="separator:ab9e6bbb0361dc98bc2f5399d014c6c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ff10cd00601bd7f6028d08ff6e33a81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_r_v_l298_n_motor_shield.html">DRVL298NMotorShield</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#a1ff10cd00601bd7f6028d08ff6e33a81">drv</a> (<a class="el" href="_serre_auto_8cpp.html#a6fe5e728d855cb8aaf42f08ee62e1ee5">CDEVOLETDIR</a>, <a class="el" href="_serre_auto_8cpp.html#a6ae2b2bf04e8184cf9196650968586c5">CDEVOLETPWM</a>, <a class="el" href="_serre_auto_8cpp.html#a11809bf48a9eed16377fb8ecde8aa014">EXTRACTEURDIR</a>, <a class="el" href="_serre_auto_8cpp.html#a725cf70ccacfa969efef92e7bd4ef56f">EXTRACTEURPWM</a>, true, false)</td></tr>
+<tr class="separator:a1ff10cd00601bd7f6028d08ff6e33a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7715afc6e8732f6f936183f5c0d76167"><td class="memItemLeft" align="right" valign="top">RTC_DS1307&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serre_auto_8cpp.html#a7715afc6e8732f6f936183f5c0d76167">rtc</a></td></tr>
+<tr class="separator:a7715afc6e8732f6f936183f5c0d76167"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Contrôle de la serre automatisée. </p>
+<dl class="section date"><dt>Date</dt><dd>23 juillet 2020 </dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>patrice </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="a6fe5e728d855cb8aaf42f08ee62e1ee5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fe5e728d855cb8aaf42f08ee62e1ee5">&#9670;&nbsp;</a></span>CDEVOLETDIR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CDEVOLETDIR&#160;&#160;&#160;16</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00022">22</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6ae2b2bf04e8184cf9196650968586c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ae2b2bf04e8184cf9196650968586c5">&#9670;&nbsp;</a></span>CDEVOLETPWM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CDEVOLETPWM&#160;&#160;&#160;17</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00023">23</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a757bb4e2bff6148de6ef3989b32a0126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a757bb4e2bff6148de6ef3989b32a0126">&#9670;&nbsp;</a></span>DHTPIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DHTPIN&#160;&#160;&#160;40</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00028">28</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2c509dba12bba99883a5be9341b7a0c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c509dba12bba99883a5be9341b7a0c5">&#9670;&nbsp;</a></span>DHTTYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DHTTYPE&#160;&#160;&#160;DHT11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00029">29</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6b78d38125a21d9328effc2729a6ebd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b78d38125a21d9328effc2729a6ebd8">&#9670;&nbsp;</a></span>ECLAIRAGE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ECLAIRAGE&#160;&#160;&#160;9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00032">32</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a11809bf48a9eed16377fb8ecde8aa014"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11809bf48a9eed16377fb8ecde8aa014">&#9670;&nbsp;</a></span>EXTRACTEURDIR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EXTRACTEURDIR&#160;&#160;&#160;23</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00024">24</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a725cf70ccacfa969efef92e7bd4ef56f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a725cf70ccacfa969efef92e7bd4ef56f">&#9670;&nbsp;</a></span>EXTRACTEURPWM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EXTRACTEURPWM&#160;&#160;&#160;25</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00025">25</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8887910a588e6add8c5c7ad94b1e32aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8887910a588e6add8c5c7ad94b1e32aa">&#9670;&nbsp;</a></span>FDCVOLETFERME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FDCVOLETFERME&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00027">27</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af49bb0440e4d6cf80c49df198607f1a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af49bb0440e4d6cf80c49df198607f1a4">&#9670;&nbsp;</a></span>FDCVOLETOUVERT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FDCVOLETOUVERT&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00026">26</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aebb9b5e61168ce1d0cd78f77ede7d37d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebb9b5e61168ce1d0cd78f77ede7d37d">&#9670;&nbsp;</a></span>HEAT_BED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HEAT_BED&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00031">31</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7c03de696708859768343b815cabeecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c03de696708859768343b815cabeecb">&#9670;&nbsp;</a></span>POMPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define POMPE&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00033">33</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a34fc85e95c57ecbe9606a01a8fa4e7e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34fc85e95c57ecbe9606a01a8fa4e7e0">&#9670;&nbsp;</a></span>THERM0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define THERM0&#160;&#160;&#160;A13</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00030">30</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ad7a1df263f6f823242a112ec11297434"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7a1df263f6f823242a112ec11297434">&#9670;&nbsp;</a></span>dht()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DHT dht </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_serre_auto_8cpp.html#a757bb4e2bff6148de6ef3989b32a0126">DHTPIN</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_serre_auto_8cpp.html#a2c509dba12bba99883a5be9341b7a0c5">DHTTYPE</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae084e1bc8ccb35ea289ba0ca4972ea6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae084e1bc8ccb35ea289ba0ca4972ea6d">&#9670;&nbsp;</a></span>lcd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidCrystal_I2C lcd </td>
+          <td>(</td>
+          <td class="paramtype">0x27&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">16&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">2&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a1ff10cd00601bd7f6028d08ff6e33a81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ff10cd00601bd7f6028d08ff6e33a81">&#9670;&nbsp;</a></span>drv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_d_r_v_l298_n_motor_shield.html">DRVL298NMotorShield</a> drv(<a class="el" href="_serre_auto_8cpp.html#a6fe5e728d855cb8aaf42f08ee62e1ee5">CDEVOLETDIR</a>, <a class="el" href="_serre_auto_8cpp.html#a6ae2b2bf04e8184cf9196650968586c5">CDEVOLETPWM</a>, <a class="el" href="_serre_auto_8cpp.html#a11809bf48a9eed16377fb8ecde8aa014">EXTRACTEURDIR</a>, <a class="el" href="_serre_auto_8cpp.html#a725cf70ccacfa969efef92e7bd4ef56f">EXTRACTEURPWM</a>, true, false)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1650ded891a8683614e014008c96278c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1650ded891a8683614e014008c96278c">&#9670;&nbsp;</a></span>Input</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PID myPID &amp; Input</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00037">37</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab9e6bbb0361dc98bc2f5399d014c6c01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9e6bbb0361dc98bc2f5399d014c6c01">&#9670;&nbsp;</a></span>Kd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Kd = 31.25</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00040">40</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aad5977a9e83736178f3b724a1d228652"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad5977a9e83736178f3b724a1d228652">&#9670;&nbsp;</a></span>Ki</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Ki = 0.2083</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00039">39</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="afd070d90e3f8bb3e9bb9c6dff310503b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd070d90e3f8bb3e9bb9c6dff310503b">&#9670;&nbsp;</a></span>Kp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Kp = 62.5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00038">38</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abe306616e5964581019974a7d94cffe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe306616e5964581019974a7d94cffe2">&#9670;&nbsp;</a></span>Output</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Output</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00037">37</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7715afc6e8732f6f936183f5c0d76167"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7715afc6e8732f6f936183f5c0d76167">&#9670;&nbsp;</a></span>rtc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTC_DS1307 rtc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00051">51</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a75c4a1f32ff8946a7e4880300dc7d309"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75c4a1f32ff8946a7e4880300dc7d309">&#9670;&nbsp;</a></span>Setpoint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Setpoint</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="_serre_auto_8cpp_source.html#l00037">37</a> du fichier <a class="el" href="_serre_auto_8cpp_source.html">SerreAuto.cpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_serre_auto_8cpp.html">SerreAuto.cpp</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

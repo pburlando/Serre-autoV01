@@ -1,0 +1,183 @@
+\section{Référence de la classe D\+R\+V\+L298\+N\+Motor\+Shield}
+\label{class_d_r_v_l298_n_motor_shield}\index{D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}}
+
+
+{\ttfamily \#include $<$D\+R\+V\+L298\+N\+Motor\+Shield.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ D\+R\+V\+L298\+N\+Motor\+Shield} (uint8\+\_\+t mg\+Dir, uint8\+\_\+t mg\+Pwm, uint8\+\_\+t md\+Dir, uint8\+\_\+t md\+Pwm, bool mg\+Flip, bool md\+Flip)
+\item 
+virtual \textbf{ $\sim$\+D\+R\+V\+L298\+N\+Motor\+Shield} ()
+\item 
+void \textbf{ set\+Speeds} (int speed\+Left, int speed\+Right) const
+\item 
+void \textbf{ set\+Speed\+\_\+left} (int speed) const
+\item 
+void \textbf{ set\+Speed\+\_\+right} (int speed) const
+\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \textbf{ \+\_\+mg\+Dir}
+\item 
+const uint8\+\_\+t \textbf{ \+\_\+mg\+Pwm}
+\item 
+const uint8\+\_\+t \textbf{ \+\_\+md\+Dir}
+\item 
+const uint8\+\_\+t \textbf{ \+\_\+md\+Pwm}
+\item 
+const bool \textbf{ \+\_\+mg\+Flip}
+\item 
+const bool \textbf{ \+\_\+md\+Flip}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 16 du fichier D\+R\+V\+L298\+N\+Motor\+Shield.\+h.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\label{class_d_r_v_l298_n_motor_shield_afa6e42953652884f15a38df4d5dbc67d}} 
+\index{D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}!D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}}
+\index{D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}!D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}}
+\subsubsection{D\+R\+V\+L298\+N\+Motor\+Shield()}
+{\footnotesize\ttfamily D\+R\+V\+L298\+N\+Motor\+Shield\+::\+D\+R\+V\+L298\+N\+Motor\+Shield (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{mg\+Dir,  }\item[{uint8\+\_\+t}]{mg\+Pwm,  }\item[{uint8\+\_\+t}]{md\+Dir,  }\item[{uint8\+\_\+t}]{md\+Pwm,  }\item[{bool}]{mg\+Flip,  }\item[{bool}]{md\+Flip }\end{DoxyParamCaption})}
+
+Construct a new pin Mode object
+
+Définition à la ligne 14 du fichier D\+R\+V\+L298\+N\+Motor\+Shield.\+cpp.
+
+\mbox{\label{class_d_r_v_l298_n_motor_shield_a3f015a6aea7ca507f3129de605d5ca2c}} 
+\index{D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}!````~D\+R\+V\+L298\+N\+Motor\+Shield@{$\sim$\+D\+R\+V\+L298\+N\+Motor\+Shield}}
+\index{````~D\+R\+V\+L298\+N\+Motor\+Shield@{$\sim$\+D\+R\+V\+L298\+N\+Motor\+Shield}!D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}}
+\subsubsection{$\sim$\+D\+R\+V\+L298\+N\+Motor\+Shield()}
+{\footnotesize\ttfamily D\+R\+V\+L298\+N\+Motor\+Shield\+::$\sim$\+D\+R\+V\+L298\+N\+Motor\+Shield (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Définition à la ligne 27 du fichier D\+R\+V\+L298\+N\+Motor\+Shield.\+cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\label{class_d_r_v_l298_n_motor_shield_ac80684b28448c2a9587364e9d794df4b}} 
+\index{D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}!set\+Speed\+\_\+left@{set\+Speed\+\_\+left}}
+\index{set\+Speed\+\_\+left@{set\+Speed\+\_\+left}!D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}}
+\subsubsection{set\+Speed\+\_\+left()}
+{\footnotesize\ttfamily void D\+R\+V\+L298\+N\+Motor\+Shield\+::set\+Speed\+\_\+left (\begin{DoxyParamCaption}\item[{int}]{speed }\end{DoxyParamCaption}) const}
+
+Fixer la vitesse du moteur gauche (O\+U\+T2) 
+\begin{DoxyParams}{Paramètres}
+{\em speed} & Vitesse moteur gauche bornée à 255 positif avant négatif arrière\\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 45 du fichier D\+R\+V\+L298\+N\+Motor\+Shield.\+cpp.
+
+\mbox{\label{class_d_r_v_l298_n_motor_shield_af0983647b57a4bcbb13910830a3ecce9}} 
+\index{D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}!set\+Speed\+\_\+right@{set\+Speed\+\_\+right}}
+\index{set\+Speed\+\_\+right@{set\+Speed\+\_\+right}!D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}}
+\subsubsection{set\+Speed\+\_\+right()}
+{\footnotesize\ttfamily void D\+R\+V\+L298\+N\+Motor\+Shield\+::set\+Speed\+\_\+right (\begin{DoxyParamCaption}\item[{int}]{speed }\end{DoxyParamCaption}) const}
+
+Fixer la vitesse du moteur droit (out3) 
+\begin{DoxyParams}{Paramètres}
+{\em speed} & Vitesse moteur droit bornée à 255 positif avant négatif arrière\\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 78 du fichier D\+R\+V\+L298\+N\+Motor\+Shield.\+cpp.
+
+\mbox{\label{class_d_r_v_l298_n_motor_shield_a88ba8ac5ea909f4525b9382a01108e2f}} 
+\index{D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}!set\+Speeds@{set\+Speeds}}
+\index{set\+Speeds@{set\+Speeds}!D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}}
+\subsubsection{set\+Speeds()}
+{\footnotesize\ttfamily void D\+R\+V\+L298\+N\+Motor\+Shield\+::set\+Speeds (\begin{DoxyParamCaption}\item[{int}]{speed\+Left,  }\item[{int}]{speed\+Right }\end{DoxyParamCaption}) const}
+
+Fixer les vitesses des moteurs droit et gauche 
+\begin{DoxyParams}{Paramètres}
+{\em speed\+Left} & Vitesse moteur gauche bornée à 255 positif avant négatif arrière \\
+\hline
+{\em speed\+Right} & Vitesse moteur droit bornée à 255 positif avant négatif arrière\\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 32 du fichier D\+R\+V\+L298\+N\+Motor\+Shield.\+cpp.
+
+
+
+\subsection{Documentation des données membres}
+\mbox{\label{class_d_r_v_l298_n_motor_shield_a188c63748b859614da68fa55e299eae0}} 
+\index{D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}!\+\_\+md\+Dir@{\+\_\+md\+Dir}}
+\index{\+\_\+md\+Dir@{\+\_\+md\+Dir}!D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}}
+\subsubsection{\+\_\+md\+Dir}
+{\footnotesize\ttfamily const uint8\+\_\+t D\+R\+V\+L298\+N\+Motor\+Shield\+::\+\_\+md\+Dir\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition à la ligne 20 du fichier D\+R\+V\+L298\+N\+Motor\+Shield.\+h.
+
+\mbox{\label{class_d_r_v_l298_n_motor_shield_abc91ed629de5dd6e8aa370d558b75857}} 
+\index{D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}!\+\_\+md\+Flip@{\+\_\+md\+Flip}}
+\index{\+\_\+md\+Flip@{\+\_\+md\+Flip}!D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}}
+\subsubsection{\+\_\+md\+Flip}
+{\footnotesize\ttfamily const bool D\+R\+V\+L298\+N\+Motor\+Shield\+::\+\_\+md\+Flip\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition à la ligne 23 du fichier D\+R\+V\+L298\+N\+Motor\+Shield.\+h.
+
+\mbox{\label{class_d_r_v_l298_n_motor_shield_a25149b6e50f502d5937603fb5207685e}} 
+\index{D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}!\+\_\+md\+Pwm@{\+\_\+md\+Pwm}}
+\index{\+\_\+md\+Pwm@{\+\_\+md\+Pwm}!D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}}
+\subsubsection{\+\_\+md\+Pwm}
+{\footnotesize\ttfamily const uint8\+\_\+t D\+R\+V\+L298\+N\+Motor\+Shield\+::\+\_\+md\+Pwm\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition à la ligne 21 du fichier D\+R\+V\+L298\+N\+Motor\+Shield.\+h.
+
+\mbox{\label{class_d_r_v_l298_n_motor_shield_ab4e2316183525c9ed755f45b03e77dbe}} 
+\index{D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}!\+\_\+mg\+Dir@{\+\_\+mg\+Dir}}
+\index{\+\_\+mg\+Dir@{\+\_\+mg\+Dir}!D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}}
+\subsubsection{\+\_\+mg\+Dir}
+{\footnotesize\ttfamily const uint8\+\_\+t D\+R\+V\+L298\+N\+Motor\+Shield\+::\+\_\+mg\+Dir\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition à la ligne 18 du fichier D\+R\+V\+L298\+N\+Motor\+Shield.\+h.
+
+\mbox{\label{class_d_r_v_l298_n_motor_shield_a93320592b14b0c8da4dc61a43342e483}} 
+\index{D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}!\+\_\+mg\+Flip@{\+\_\+mg\+Flip}}
+\index{\+\_\+mg\+Flip@{\+\_\+mg\+Flip}!D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}}
+\subsubsection{\+\_\+mg\+Flip}
+{\footnotesize\ttfamily const bool D\+R\+V\+L298\+N\+Motor\+Shield\+::\+\_\+mg\+Flip\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition à la ligne 22 du fichier D\+R\+V\+L298\+N\+Motor\+Shield.\+h.
+
+\mbox{\label{class_d_r_v_l298_n_motor_shield_aa893ef6b1bb8bf81a7b4e061270c4f9a}} 
+\index{D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}!\+\_\+mg\+Pwm@{\+\_\+mg\+Pwm}}
+\index{\+\_\+mg\+Pwm@{\+\_\+mg\+Pwm}!D\+R\+V\+L298\+N\+Motor\+Shield@{D\+R\+V\+L298\+N\+Motor\+Shield}}
+\subsubsection{\+\_\+mg\+Pwm}
+{\footnotesize\ttfamily const uint8\+\_\+t D\+R\+V\+L298\+N\+Motor\+Shield\+::\+\_\+mg\+Pwm\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition à la ligne 19 du fichier D\+R\+V\+L298\+N\+Motor\+Shield.\+h.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+One\+Drive/\+Documents/\+Boulot/\+L\+A\+B\+O\+\_\+\+S\+I/projets didactiques/\+Serre\+\_\+automatisee/tests\+\_\+serre/src/\textbf{ D\+R\+V\+L298\+N\+Motor\+Shield.\+h}\item 
+D\+:/\+One\+Drive/\+Documents/\+Boulot/\+L\+A\+B\+O\+\_\+\+S\+I/projets didactiques/\+Serre\+\_\+automatisee/tests\+\_\+serre/src/\textbf{ D\+R\+V\+L298\+N\+Motor\+Shield.\+cpp}\end{DoxyCompactItemize}
