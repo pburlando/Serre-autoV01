@@ -201,12 +201,12 @@ int SerreAuto::chauffer(bool etat) {
     }
 
     if(etat) {
-        if (Input < 58) {
+        if (Input < 57) {
             analogWrite(HEAT_BED, 255);
             _commande_mli = 255;
             return 0;
         }
-        else if (Input > 62) {
+        else if (Input > 63) {
             analogWrite(HEAT_BED, 0);
             _commande_mli = 0;
             return 0;
@@ -269,7 +269,6 @@ float SerreAuto::temperature_plateau() {
  * 
  */
 float SerreAuto::humidite_ambiante() {
-
     _humidite_ambiante = dht.readHumidity();
     return _humidite_ambiante;
 }
