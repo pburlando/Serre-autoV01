@@ -13,7 +13,7 @@
 #include <RTClib.h>
 
 #define VERSION "V0.1 "
-#define CONSIGNE_TA 22
+#define CONSIGNE_TA 20
 #define HYSTERESIS_TA 1
 #define CONSIGNE_TC 60
 

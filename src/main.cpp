@@ -26,7 +26,7 @@ void setup() {
   serre.fermer_volet();
   serre.commander_eclairage(true);
   serre.commander_extracteur_air(255);
-  delay(5000); 
+  delay(2000); 
   WatchDog::init(atuISR, 10000);
   
 }
@@ -42,9 +42,28 @@ void loop() {
   // Code à répéter toutes les secondes
   if((millis() - start_time) > 999) {
     start_time = millis();
-    serre.temperature_ambiante();
+    float ta = serre.temperature_ambiante();
     serre.humidite_ambiante();
     serre.temperature_plateau();
+    
+    // Gestion de l'aération et du chauffage
+    if(ta >= CONSIGNE_TA + HYSTERESIS_TA) {
+      serre.ouvrir_volet();
+      serre.commander_extracteur_air(255);
+      int etat = serre.chauffer(false);
+      if (etat != 0) {
+        //Serial.println("Erreur chauffage");
+      }
+    }
+    else if (serre.temperature_ambiante() <= (CONSIGNE_TA - HYSTERESIS_TA)) {
+      serre.fermer_volet();
+      serre.commander_extracteur_air(60);
+      int etat = serre.chauffer(true);
+      if (etat != 0) {
+        //Serial.println("Erreur chauffage");
+      }
+    }
+
     // Modification de l'affichage toutes les 10 secondes
     if(compteur_de_boucle < 3)
       serre.afficher_version();
@@ -63,28 +82,7 @@ void loop() {
 
     // Superviser les paramètres sur le moniteur série
     serre.superviser();
-
   }
-
-
-  // Gestion de l'aération et du chauffage
-  if(serre.temperature_ambiante() >= CONSIGNE_TA + HYSTERESIS_TA) {
-    serre.ouvrir_volet();
-    serre.commander_extracteur_air(255);
-    int etat = serre.chauffer(false);
-    if (etat != 0) {
-      //Serial.println("Erreur chauffage");
-    }
-  }
-  else if (serre.temperature_ambiante() <= (CONSIGNE_TA - HYSTERESIS_TA)) {
-    serre.fermer_volet();
-    serre.commander_extracteur_air(128);
-    int etat = serre.chauffer(true);
-    if (etat != 0) {
-      //Serial.println("Erreur chauffage");
-    }
-  }
-
   WatchDog::stop();
 }
 
