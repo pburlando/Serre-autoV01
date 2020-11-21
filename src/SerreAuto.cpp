@@ -51,6 +51,8 @@ PID myPID(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
 RTC_DS1307 rtc;
 
 
+
+
 /**
  * @brief Construct a new pin Mode object
  * 
@@ -522,6 +524,18 @@ void SerreAuto::restaurer_parametres_arrosage() {
 }
 
 
+/**
+ * @brief affiche sur le lcd et le port série le 
+ *        problème rencontré.
+ * 
+ * @param err_number  numéro de l'erreur
+ * @todo A fiabiliser
+ */
+void SerreAuto::afficher_erreur(uint8_t err_number) {
+    const String tab_err[] PROGMEM = {"Erreur temperature chauffage", "Time out volet"};
+    Serial.println(tab_err[err_number]);
+    delay(5000);
+}
 SerreAuto::~SerreAuto() {
 	// TODO Auto-generated destructor stub
 }

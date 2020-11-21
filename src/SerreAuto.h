@@ -59,6 +59,7 @@ public:
     uint8_t mli_plateau_chauffant() const;
     void enregistrer_parametres_arrosage();
     void restaurer_parametres_arrosage();
+    void afficher_erreur(uint8_t err_number);
 
 };
 

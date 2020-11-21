@@ -50,17 +50,15 @@ void loop() {
     if(ta >= CONSIGNE_TA + HYSTERESIS_TA) {
       serre.ouvrir_volet();
       serre.commander_extracteur_air(255);
-      int etat = serre.chauffer(false);
-      if (etat != 0) {
-        //Serial.println("Erreur chauffage");
+      if (serre.chauffer(false) != 0) {
+        serre.afficher_erreur(0);
       }
     }
     else if (serre.temperature_ambiante() <= (CONSIGNE_TA - HYSTERESIS_TA)) {
       serre.fermer_volet();
       serre.commander_extracteur_air(60);
-      int etat = serre.chauffer(true);
-      if (etat != 0) {
-        //Serial.println("Erreur chauffage");
+      if (serre.chauffer(true) != 0) {
+        serre.afficher_erreur(0);
       }
     }
 
